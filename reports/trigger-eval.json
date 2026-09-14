@@ -1,0 +1,279 @@
+{
+  "ok": true,
+  "threshold": 0.34,
+  "description_concepts": [
+    "apps",
+    "cleanup",
+    "devcache",
+    "system",
+    "windows"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 19,
+    "passed": 19,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "C盘满了帮我清理一下",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "我的电脑磁盘空间不足，清理一下缓存",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "clean up my windows pc, disk is almost full",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "free up space on my C drive",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "清理微信和QQ的缓存占用",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "apps",
+          "cleanup"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "C盘空间不足，帮我看看 WinSxS 为什么这么大",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "cleanup",
+          "system",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "C盘临时文件太多了，清理一下系统垃圾",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "cleanup",
+          "system",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "帮我清一下 npm 和 pip 的缓存",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "devcache"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "C盘空间不足，hiberfil.sys 太大了怎么处理",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "cleanup",
+          "system",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "storage cleanup for windows 11",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "帮我写一个 Python 爬虫",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "帮我修一下这个 TypeScript 报错",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "这个 Excel 表怎么用数据透视表",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null,
+        "explicit_activation": null
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "清理我的 mac 电脑",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "cleanup",
+          "windows"
+        ],
+        "negative_pattern": "mac",
+        "explicit_activation": null
+      },
+      {
+        "prompt": "帮我把这个目录里的重复文件找出来",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "清理一下 docker 无用镜像",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "cleanup"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "帮我优化 Windows 注册表提升性能",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "windows"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "把微信聊天记录迁移到 D 盘",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "apps"
+        ],
+        "negative_pattern": null,
+        "explicit_activation": null
+      },
+      {
+        "prompt": "帮我把 Downloads 里的文件整理归类",
+        "family": "default",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null,
+        "explicit_activation": null
+      }
+    ]
+  }
+}

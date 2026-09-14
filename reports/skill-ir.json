@@ -1,0 +1,131 @@
+{
+  "schema_version": "2.1.0-namoo-lite",
+  "generated_at": "2026-09-14",
+  "package": {
+    "name": "namoo-windows-storage-cleaner",
+    "version": "1.2.0",
+    "owner": "Namoo",
+    "maturity_tier": "production",
+    "lifecycle_stage": "capability-baseline",
+    "self_distribution": {
+      "mode": "current-repository-only",
+      "repository": "nardinmarcus/namoo-agents",
+      "path": ".agents/skills/namoo-windows-storage-cleaner"
+    }
+  },
+  "intent": {
+    "description": "Windows 电脑存储清理：当用户提到 C盘满、磁盘空间不足、清理电脑/垃圾/缓存/临时文件、WinSxS、休眠文件、浏览器缓存、微信/QQ 占用、开发缓存(npm/pip)时触发。Tier 0-3 分级：0/1 确认后清，2 逐项确认，3 只报告。不做重复文件/注册表/迁移，不含 macOS/Linux。",
+    "job_to_be_done": "Windows 电脑存储清理：只读扫描产出 Tier 0-3 分级报告，按批准范围清理可再生缓存与安全垃圾，系统级操作逐项确认，产出前后对比账单。",
+    "target_users": [
+      "Namoo（Windows 日常使用者）",
+      "需要 C 盘空间急救的开发者"
+    ],
+    "inputs": [
+      "清理意图（C盘满/空间不足/清理垃圾）",
+      "可选的模块范围或 Tier 范围",
+      "对 Tier 2 项的逐项批准"
+    ],
+    "outputs": [
+      "storage-scan-report.md 分级扫描报告",
+      "清理账单（逐模块释放量、跳过项、失败清单、前后空闲空间）"
+    ],
+    "exclusions": [
+      "重复文件检测",
+      "注册表清理",
+      "AppData/junction/聊天记录迁移",
+      "macOS/Linux 清理",
+      "按文件名模式批量删除"
+    ],
+    "namoo_defaults": {
+      "skill_name_prefix": "namoo-",
+      "ownership_authority": "skill-catalog.json",
+      "canonical_hub": "~/.agents/skills"
+    }
+  },
+  "triggers": {
+    "should_trigger": [
+      "C盘满了帮我清理一下",
+      "我的电脑磁盘空间不足，清理一下缓存",
+      "clean up my windows pc, disk is almost full",
+      "free up space on my C drive",
+      "清理微信和QQ的缓存占用",
+      "C盘空间不足，帮我看看 WinSxS 为什么这么大",
+      "C盘临时文件太多了，清理一下系统垃圾",
+      "帮我清一下 npm 和 pip 的缓存",
+      "C盘空间不足，hiberfil.sys 太大了怎么处理",
+      "storage cleanup for windows 11"
+    ],
+    "should_not_trigger": [
+      "帮我写一个 Python 爬虫",
+      "帮我修一下这个 TypeScript 报错",
+      "这个 Excel 表怎么用数据透视表"
+    ],
+    "near_neighbor": [
+      "清理我的 mac 电脑",
+      "帮我把这个目录里的重复文件找出来",
+      "清理一下 docker 无用镜像",
+      "帮我优化 Windows 注册表提升性能",
+      "把微信聊天记录迁移到 D 盘",
+      "帮我把 Downloads 里的文件整理归类"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [
+      "references\\cleanup-catalog.md",
+      "references\\im-app-paths.md",
+      "references\\playbook.md",
+      "references\\red-lines.md"
+    ],
+    "scripts": [],
+    "evals": [
+      "evals\\trigger_cases.json"
+    ],
+    "reports": [
+      "reports\\creation-handoff.md",
+      "reports\\prior-art-research.md",
+      "reports\\skill-ir.json",
+      "reports\\trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {
+      "mode": "implicit-or-explicit",
+      "paths": []
+    },
+    "execution": {
+      "context": "inline",
+      "shell": "powershell"
+    },
+    "trust": {
+      "deletion": "allowlist-only, module-id resolved, dry-run default",
+      "tier2": "per-item explicit confirmation + elevation required",
+      "tier3": "report-only"
+    },
+    "permissions": {},
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_report_presence_is_evidence": false,
+    "recognized_output_evidence_kinds": [
+      "provider_backed",
+      "human_blind_review"
+    ],
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "a generated report supports only the specific claim and verified evidence kind it records; artifact presence alone is not evidence"
+  }
+}

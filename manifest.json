@@ -1,0 +1,81 @@
+{
+  "name": "namoo-windows-storage-cleaner",
+  "version": "1.2.0",
+  "owner": "Namoo",
+  "updated_at": "2026-09-14",
+  "status": "active",
+  "maturity_tier": "production",
+  "lifecycle_stage": "capability-baseline",
+  "context_budget_tier": "standard",
+  "review_cadence": "quarterly",
+  "self_distribution": {
+    "mode": "current-repository-only",
+    "repository": "nardinmarcus/namoo-agents",
+    "path": ".agents/skills/namoo-windows-storage-cleaner"
+  },
+  "publication": {
+    "mode": "standalone-public",
+    "repository": "nardinmarcus/namoo-windows-storage-cleaner",
+    "version": "1.2.0",
+    "released_at": "2026-09-14",
+    "release_url": "https://github.com/nardinmarcus/namoo-windows-storage-cleaner/releases/tag/v1.2.0"
+  },
+  "intent": {
+    "job_to_be_done": "Windows 电脑存储清理：只读扫描产出 Tier 0-3 分级报告，按批准范围清理可再生缓存与安全垃圾，系统级操作逐项确认，产出前后对比账单。",
+    "target_users": [
+      "Namoo（Windows 日常使用者）",
+      "需要 C 盘空间急救的开发者"
+    ],
+    "inputs": [
+      "清理意图（C盘满/空间不足/清理垃圾）",
+      "可选的模块范围或 Tier 范围",
+      "对 Tier 2 项的逐项批准"
+    ],
+    "outputs": [
+      "storage-scan-report.md 分级扫描报告",
+      "清理账单（逐模块释放量、跳过项、失败清单、前后空闲空间）"
+    ],
+    "exclusions": [
+      "重复文件检测",
+      "注册表清理",
+      "AppData/junction/聊天记录迁移",
+      "macOS/Linux 清理",
+      "按文件名模式批量删除"
+    ]
+  },
+  "namoo_defaults": {
+    "skill_name_prefix": "namoo-",
+    "ownership_authority": "skill-catalog.json",
+    "canonical_hub": "~/.agents/skills"
+  },
+  "skillops": {
+    "task_end_review": "required",
+    "correction_capture": "explicit_only",
+    "approval_mode": "per_item",
+    "candidate_change": "after_user_approval",
+    "canonical_change": "after_verified_candidate_approval"
+  },
+  "target_platforms": [
+    "openai",
+    "claude",
+    "generic",
+    "agent-skills-compatible"
+  ],
+  "release_gates": [
+    "validate_skill",
+    "trigger_eval",
+    "readme_product_page",
+    "export_skill_ir",
+    "context_budget_validation",
+    "creation_handoff",
+    "local_skill_sync",
+    "current_repository_self_distribution"
+  ],
+  "evidence_boundary": {
+    "lexical_trigger_smoke": "19/19 passed (v1.0.0, re-verified v1.1.0/v1.2.0); not provider-backed routing evidence",
+    "behavior_eval": "missing evidence",
+    "safety_claims": "allowlist design follows audited prior art (clean-my-disk tier system); no independent red-team verification",
+    "space_gain_numbers": "self-reported tutorial estimates, not independently verified; live run on owner machine reclaimed ~19.9 GB (2026-09-14)",
+    "bundled_publish_dry_run": "blocked on Windows host (npx subprocess WinError 2); publish gates executed manually with equivalent evidence"
+  }
+}
