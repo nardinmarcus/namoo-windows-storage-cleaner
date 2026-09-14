@@ -1,0 +1,87 @@
+{
+  "recommended_threshold": 0.34,
+  "description_required_concepts": [
+    "windows",
+    "cleanup"
+  ],
+  "negative_patterns": [
+    "mac",
+    "mac电脑"
+  ],
+  "positive_concepts": {
+    "windows": [
+      "windows",
+      "windows 11",
+      "windows 10",
+      "win11",
+      "win10",
+      "c盘",
+      "c drive",
+      "电脑",
+      "pc"
+    ],
+    "cleanup": [
+      "清理",
+      "cleanup",
+      "clean",
+      "垃圾",
+      "缓存",
+      "cache",
+      "临时文件",
+      "temp",
+      "空间",
+      "space",
+      "storage",
+      "释放",
+      "free up",
+      "磁盘",
+      "disk"
+    ],
+    "apps": [
+      "微信",
+      "qq",
+      "wechat",
+      "钉钉"
+    ],
+    "system": [
+      "winsxs",
+      "hiberfil",
+      "休眠",
+      "还原点",
+      "系统垃圾"
+    ],
+    "devcache": [
+      "npm",
+      "pip",
+      "gradle",
+      "jetbrains",
+      "yarn",
+      "uv"
+    ]
+  },
+  "should_trigger": [
+    "C盘满了帮我清理一下",
+    "我的电脑磁盘空间不足，清理一下缓存",
+    "clean up my windows pc, disk is almost full",
+    "free up space on my C drive",
+    "清理微信和QQ的缓存占用",
+    "C盘空间不足，帮我看看 WinSxS 为什么这么大",
+    "C盘临时文件太多了，清理一下系统垃圾",
+    "帮我清一下 npm 和 pip 的缓存",
+    "C盘空间不足，hiberfil.sys 太大了怎么处理",
+    "storage cleanup for windows 11"
+  ],
+  "should_not_trigger": [
+    "帮我写一个 Python 爬虫",
+    "帮我修一下这个 TypeScript 报错",
+    "这个 Excel 表怎么用数据透视表"
+  ],
+  "near_neighbor": [
+    "清理我的 mac 电脑",
+    "帮我把这个目录里的重复文件找出来",
+    "清理一下 docker 无用镜像",
+    "帮我优化 Windows 注册表提升性能",
+    "把微信聊天记录迁移到 D 盘",
+    "帮我把 Downloads 里的文件整理归类"
+  ]
+}

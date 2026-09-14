@@ -1,0 +1,27 @@
+interface:
+  display_name: "Namoo Windows Storage Cleaner"
+  short_description: "Windows 电脑分级清理：先扫描、后确认、只删白名单"
+  default_prompt: "Use $namoo-windows-storage-cleaner to scan my Windows machine read-only, present a Tier 0-3 cleanup plan, and only clean approved modules. Tier 0/1 need one confirmation, Tier 2 needs per-item confirmation with irreversible consequences stated, Tier 3 is report-only. Dry-run first, -Execute only after approval. 不做重复文件检测、注册表清理、迁移流；微信/QQ 数据默认只报告。"
+  examples:
+    - "C盘满了，帮我清理"
+    - "扫描一下哪些东西占空间"
+    - "清一下开发缓存和临时文件"
+    - "Windows Update 缓存能清吗"
+    - "看看微信 QQ 占了多少空间"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+    - "agent-skills-compatible"
+  activation:
+    mode: "implicit-or-explicit"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "powershell"
+  trust:
+    deletion: "allowlist-only, module-id resolved, dry-run default"
+    tier2: "per-item explicit confirmation + elevation required"
+    tier3: "report-only"
